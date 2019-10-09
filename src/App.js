@@ -51,11 +51,11 @@ const App = () => {
       <div className="boxes">
         <div className="box">
           <Header car={state.car} />
-          <AddedFeatures car={state.car} />
+          <AddedFeatures />
         </div>
         <div className="box">
-          <AdditionalFeatures store={state.store} />
-          <Total car={state.car} additionalPrice={state.additionalPrice} />
+          <AdditionalFeatures />
+          <Total />
         </div>
       </div>
     </Provider>
