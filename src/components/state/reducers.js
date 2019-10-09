@@ -27,12 +27,18 @@ export function storeReducer(state = initialState, action) {
     case types.ADD_FEATURE:
       return {
         ...state,
-        [state.additionalPrice]: state.additionalPrice+=action.payload.price,
-        [state.car.features]: state.car.features.push({
-          id: action.payload.id,
-          name: action.payload.name,
-          price: action.payload.price,
-        })
+        additionalPrice: state.additionalPrice + action.payload.price,
+        car: {
+          ...state.car,
+          features: state.car.features.concat({
+              id: action.payload.id,
+              name: action.payload.name,
+              price: action.payload.price,
+          })
+        }
+
+        // [state.additionalPrice]: state.additionalPrice+=action.payload.price,
+
       };
     case types.REMOVE_FEATURE:
       const newFeatures=state.car.features.filter((a) => {
