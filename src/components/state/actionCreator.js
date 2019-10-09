@@ -12,11 +12,12 @@ export function addFeature(name, price) {
   };
 }
 
-export function removeFeature(id) {
+export function removeFeature(id, price) {
   return {
     type: types.REMOVE_FEATURE,
     payload: {
       id: id,
+      price: price,
     },
   };
 }

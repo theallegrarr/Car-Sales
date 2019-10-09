@@ -39,10 +39,9 @@ export function storeReducer(state = initialState, action) {
         return  a.id !== action.payload.id;
         });
       
-      console.log(action.payload.id, newFeatures, state)
-
       return {
           ...state,
+          [state.additionalPrice]: state.additionalPrice-=action.payload.price,
           [state.car.features]: state.car.features=newFeatures,
         };
     default:
