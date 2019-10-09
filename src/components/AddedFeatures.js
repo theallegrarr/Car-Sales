@@ -5,7 +5,7 @@ import * as actionCreators from './state/actionCreator';
 import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
-  const { features } = props;
+  const { features, removeFeature } = props;
 
   return (
     <div className="content">
@@ -13,7 +13,7 @@ const AddedFeatures = props => {
       {features.car.features.length ? (
         <ol type="1">
           {features.car.features.map(item => (
-            <AddedFeature key={item.id} name={item.name} price={item.price} feature={item} />
+            <AddedFeature removeFeature={removeFeature} key={item.id} name={item.name} price={item.price} feature={item} />
           ))}
         </ol>
       ) : (

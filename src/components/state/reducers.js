@@ -27,12 +27,24 @@ export function storeReducer(state = initialState, action) {
     case types.ADD_FEATURE:
       return {
         ...state,
+        [state.additionalPrice]: state.additionalPrice+=action.payload.price,
         [state.car.features]: state.car.features.push({
           id: action.payload.id,
           name: action.payload.name,
           price: action.payload.price,
         })
       };
+    case types.REMOVE_FEATURE:
+      const newFeatures=state.car.features.filter((a) => {
+        return  a.id !== action.payload.id;
+        });
+      
+      console.log(action.payload.id, newFeatures, state)
+
+      return {
+          ...state,
+          [state.car.features]: state.car.features=newFeatures,
+        };
     default:
       return state;
   };

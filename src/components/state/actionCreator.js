@@ -11,3 +11,12 @@ export function addFeature(name, price) {
     },
   };
 }
+
+export function removeFeature(id) {
+  return {
+    type: types.REMOVE_FEATURE,
+    payload: {
+      id: id,
+    },
+  };
+}
